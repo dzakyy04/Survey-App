@@ -159,7 +159,7 @@ const tmpSurveys = [
   },
   {
     id: 2,
-    image_url: "https://source.unsplash.com/500x500?react-js",
+    image_url: "https://blog.devitpl.com/wp-content/uploads/React-JS.png",
     title: "React",
     slug: "react",
     status: true,
@@ -172,7 +172,8 @@ const tmpSurveys = [
   },
   {
     id: 3,
-    image_url: "https://source.unsplash.com/500x500?laravel",
+    image_url:
+      "https://proximahost.es/blog/wp-content/uploads/2022/05/Laravel.jpg",
     title: "Laravel 9",
     slug: "laravel-9",
     status: true,
