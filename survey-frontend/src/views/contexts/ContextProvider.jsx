@@ -199,6 +199,8 @@ export const ContextProvider = ({ children }) => {
     } else {
       localStorage.removeItem("TOKEN");
     }
+
+    _setUserToken(token);
   };
 
   return (
