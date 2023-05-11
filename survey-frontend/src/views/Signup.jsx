@@ -160,7 +160,7 @@ export default function Signup() {
             to="/login"
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
           >
-            Login with your account
+            Login here
           </Link>
         </p>
       </div>

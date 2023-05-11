@@ -7,26 +7,20 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\SignupRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function signup(Request $request)
+    public function signup(SignupRequest $request)
     {
-        $data = $request->validate(['name' => 'required|string',
-            'email' => 'required|email|string|unique:users,email',
-            'password' => [
-                'required',
-                'confirmed',
-                Password::min(8)->mixedCase()->numbers()->symbols()
-            ]
-        ]);
+        $data = $request->validated();
 
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password'],
+            'password' => Hash::make($data['password'])
         ]);
+
         $token = $user->createToken('main')->plainTextToken;
 
         return response([
@@ -46,7 +40,6 @@ class AuthController extends Controller
                 'error' => 'The Provided credentials are not correct'
             ], 422);
         }
-
         $user = Auth::user();
         $token = $user->createToken('main')->plainTextToken;
 
